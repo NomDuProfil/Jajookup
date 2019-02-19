@@ -5,6 +5,11 @@ if ! dpkg-query -W -f'${Status}' "ipcalc" 2>/dev/null | grep -q "ok installed"; 
 	exit
 fi
 
+if [ $# -eq 0 ]; then
+	echo "usage: ./jajookup.sh 0.0.0.0/0"
+	exit
+fi
+
 cidr=$1
 
 ipstart=$(ipcalc -b $cidr | grep "HostMin" | cut -d ':' -f 2)
