@@ -1,10 +1,4 @@
-﻿#param 
-#( 
-#  [string]$IPAdressCIDR
-#)
-
-$IPAdressCIDR = "192.168.0.0/24"
-
+﻿$IPAdressCIDR = $($args[0])
 
 function IP-toINT64($ip) { 
   $octets = $ip.split(".") 
